@@ -29,14 +29,17 @@ def new_person():
     return page
 
 # Adds person to line
-@app.route("/create_new_person.py", methods=['POST', 'GET'])
+@app.route("/create_new_person.html", methods=['POST', 'GET'])
 def create_new_person():
     phone = request.args.get("phone_num")
     phone = str(re.sub(r'\D', '', phone))
-
     new_user = Person(phone=phone)
     new_user.add_to_line()
-    return redirect(f"/display_person.html?id={new_user.id}", code=302)
+
+    page = get_page("C:/Users/willi/OneDrive/Desktop/In_Line/client/display_person.html")
+    page = page.format(line_num=str(new_user.calculate_place()))
+
+    return page
 
 @app.route('/display_person.html')
 # returns order in line

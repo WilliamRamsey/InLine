@@ -11,12 +11,12 @@
 </head>
 <body class="bg-light">
     <!-- Form to add to line and enter phone number -->
-    <form action="http://127.0.0.1:5500/create_new_person.py">
+    <form action="http://127.0.0.1:5500/create_new_person.html">
         <p>Please format number as 123-456-7890</p>
         <p>Sorry for the but only US numbers are currently accepted</p>
         <p>But submitting your number you concent to receiving texts exclusivly regaurding your order</p>
         <label for="phone_num">Phone Number:</label>
-        <input id="phone_num" type="tel" name="phone_num" value="" pattern="^\(?\d{3}\)?[-]?\d{3}[-]?\d{4}$" required>
+        <input id="phone_num" type="tel" name="phone_num" value="" pattern="[0-9]{3}(-)?[0-9]{3}(-)?[0-9]{4}" placeholder="000-000-0000" required>
         <input type="submit">
     </form>
   

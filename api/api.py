@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import request
-from flask import render_template
 from flask import redirect
 import re
 from person import *
@@ -76,12 +75,18 @@ def get_place():
     user = Person(id=int(request.args.get("id")))
     return str(user.calculate_place())
 
-
+#
+#
 @app.route('/next_person')
 def next_person():
     pass
 
+@app.route('/prev_person')
+def prev_person():
+    pass
+
 # Utilities (javascript and css files)
+#
 @app.route('/utils/javascript/refresh_page.js')
 def refresh_page():
     js = get_page("C:/Users/willi/OneDrive/Desktop/In_Line/client/scripts/refresh_page.js")

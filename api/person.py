@@ -1,5 +1,5 @@
 import pandas as pd
-import smtplib
+from text import *
 
 class Person:
     def __init__(self, id=None, in_line=None, phone=None, position=None, carrier=None):
@@ -15,6 +15,7 @@ class Person:
         self.df = pd.read_csv("C:/Users/willi/OneDrive/Desktop/In_Line/api/line.csv", header=0)
         self.df.set_index('id', inplace=True)
 
+    # This function ensures that any data that the database has is populated into the class and vice versa
     def link_to_database(self):
         # If no id, generates one
         if self.id is None:
@@ -64,4 +65,17 @@ class Person:
                 break
 
     def send_text(self):
-        pass
+        # Checks if person has a phone number and carrier in the database
+        if self.carrier is not None and self.phone is not None:
+            if self.carrier == "att":
+                recipient = str(self.phone) + "@mms.att.net"
+            elif self.carrier == "verizon":
+                recipient = str(self.phone) + "@vzwpix.com"
+            elif self.carrier == "t-mobile":
+                recipient = str(self.phone) + "@tmomail.net"
+            else:
+                raise ValueError(f"An unsupported carrier was somehow submitted for user {str(self.id)}")
+            send_mail(recipient)
+
+        else:
+            raise ValueError(f"No phone carrier or number was found for user {str(self.id)}")

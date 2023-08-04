@@ -14,12 +14,14 @@
     <form action="http://127.0.0.1:5500/create_new_person.py">
         <p>Please format number as 123-456-7890</p>
         <p>Only US numbers are currently accepted</p>
+
+        <label for="phone-carrier"></label>
         <select id="phone-carrier" name="carrier">
             <option value="att">AT&T</option>
             <option value="verizon">Verizon Wireless</option>
             <option value="t-mobile">T-Mobile</option>
-            <option value="sprint">Sprint</option>
         </select>
+
         <label for="phone_num">Phone Number:</label>
         <input id="phone_num" type="tel" name="phone_num" pattern="[0-9]{3}(-)?[0-9]{3}(-)?[0-9]{4}" placeholder="000-000-0000" required>
         <input type="submit">

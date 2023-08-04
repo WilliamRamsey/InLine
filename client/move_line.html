@@ -2,20 +2,15 @@
 <html lang="en">
 <head>
    <meta charset="utf-8">
-   <script src="http://127.0.0.1:5500/utils/javascript/refresh_page.js"></script>
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
    <!-- Bootsrap CSS/HTMX -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-   <title>In-Line | Your Wait</title>
+   <title>In-Line | Enter Que</title>
 </head>
 <body class="bg-light">
-
-    <script src="https://unpkg.com/htmx.org@1.9.2" integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous"></script>
-    <script>setInterval(refreshPage, 5000)</script>
-    
-    <p>You are number: <span class="htmx-refresh" hx-get="http://127.0.0.1:5500/person/place?id={id}" hx-trigger="load"></span> in line</p>
-    <p>You should receive a text soon</p>
+    <button>Next</button>
+    <button>Prev</button>
     <!-- Bootstrap Imports -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

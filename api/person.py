@@ -3,8 +3,6 @@ from text import *
 
 class Person:
     def __init__(self, id=None, in_line=None, phone=None, position=None, carrier=None):
-        self.df = pd.read_csv("C:/Users/willi/OneDrive/Desktop/In_Line/api/line.csv", header=0)
-        self.df.set_index('id', inplace=True)
 
         self.id = id
         self.in_line = in_line
@@ -17,6 +15,7 @@ class Person:
 
     # This function ensures that any data that the database has is populated into the class and vice versa
     def link_to_database(self):
+
         # If no id, generates one
         if self.id is None:
             if self.df.index.empty:
@@ -25,7 +24,7 @@ class Person:
                 self.id = int(self.df.index[-1]) + 1
             
         else:
-            # If we don't know 
+            # If we don't know if the class is in line
             if self.in_line is None:
                 if not pd.isna(self.df['in_line'].loc[self.id]):
                     if self.df['in_line'].loc[self.id] == "True":
@@ -61,7 +60,7 @@ class Person:
             pos += 1
             if value:
                 self.position = self.id - pos
-                return self.position
+                return self.position + 1
                 break
 
     def send_text(self):

@@ -2,8 +2,12 @@ from flask import Flask
 from flask import request
 from flask import redirect
 import re
+import pandas as pd
 from person import *
 
+# THERE IS NO TOMMORROW
+# THERE IS NO TOMMORROW
+# THERE IS NO TOMMORROW
 
 def get_page(location):
     file = open(location, "r")
@@ -77,9 +81,25 @@ def get_place():
 
 #
 #
+
 @app.route('/next_person')
 def next_person():
-    pass
+    df = pd.read_csv("C:/Users/willi/OneDrive/Desktop/In_Line/api/line.csv", header=0)
+    df.set_index('id', inplace=True)
+    
+    df = pd.read_csv("C:/Users/willi/OneDrive/Desktop/In_Line/api/line.csv", header=0)
+    df.set_index('id', inplace=True)
+
+    # Need to add solution for case if there is no person
+    for row_index in range(len(df.index)):
+        if df.loc[row_index]['in_line']:
+            fred = Person(id=row_index)
+            fred.in_line = False
+            fred.link_to_database()
+            fred.send_text()
+            return str(fred.id)
+
+        
 
 @app.route('/prev_person')
 def prev_person():
